@@ -1,4 +1,4 @@
-@dir = "/opt/UAS-Sign/"
+@dir = "/opt/CCDC-Sign-Challenge-2016/"
 
 worker_processes 2
 working_directory @dir

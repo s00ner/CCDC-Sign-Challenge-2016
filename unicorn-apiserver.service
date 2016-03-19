@@ -2,12 +2,12 @@
 Description=Unicorn Sign API Server
 
 [Service]
-User=unicorn
+User=pi
 Type=forking
-WorkingDirectory=/opt/UAS-Sign/
+WorkingDirectory=/opt/CCDC-Sign-Challenge-2016/
 SyslogIdentifier=unicorn
-PIDFile=/opt/UAS-Sign/tmp/pids/unicorn.pid
-ExecStart=/usr/local/bin/unicorn -D -c /opt/UAS-Sign/unicorn.rb -E development
+PIDFile=/opt/CCDC-Sign-Challenge-2016/tmp/pids/unicorn.pid
+ExecStart=/usr/bin/unicorn -D -c /opt/CCDC-Sign-Challenge-2016/unicorn.rb -E development
 #ExecReload=/bin/kill -s USR2 $MAINPID && /bin/kill -s QUIT $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 
