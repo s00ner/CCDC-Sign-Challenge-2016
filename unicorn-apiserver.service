@@ -1,0 +1,15 @@
+[Unit]
+Description=Unicorn Sign API Server
+
+[Service]
+User=unicorn
+Type=forking
+WorkingDirectory=/opt/UAS-Sign/
+SyslogIdentifier=unicorn
+PIDFile=/opt/UAS-Sign/tmp/pids/unicorn.pid
+ExecStart=/usr/local/bin/unicorn -D -c /opt/UAS-Sign/unicorn.rb -E development
+#ExecReload=/bin/kill -s USR2 $MAINPID && /bin/kill -s QUIT $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
