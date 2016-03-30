@@ -6,7 +6,7 @@ class LedSign
   def initialize(serial_dev)
     #set values for communication with the sign, establish serial connection
     @prepend = "<ID01><PA>"
-    @terminator = " \r\n"
+    @terminator = "  \r\n" #Added an extra space here to work with my sign.
     @serial = SerialPort.new(serial_dev,9600,8,1,SerialPort::NONE)
     @serial.read_timeout = 100 #this is so @serial.read doesn't hang, units is ms
   end
@@ -15,11 +15,8 @@ class LedSign
     #check to see if the sign is responding
     @serial.flush_input #flush data that has not been read
     @serial.write("#{@prepend}#{@terminator}")
-    if @serial.read(8) == nil #This should be 12 bits for for some reason it breaks things when set to 12
-      return false
-    else
-      return true
-    end
+    #This function always returns true. This is a hack to work with my sign since it doesn't behave properly.
+    return true
   end
 
   def write(message) #returns true for success, false when sign is off
