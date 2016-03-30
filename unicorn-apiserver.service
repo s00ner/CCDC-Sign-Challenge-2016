@@ -7,7 +7,7 @@ Type=forking
 WorkingDirectory=/opt/CCDC-Sign-Challenge-2016/
 SyslogIdentifier=unicorn
 PIDFile=/opt/CCDC-Sign-Challenge-2016/tmp/pids/unicorn.pid
-ExecStart=/usr/bin/unicorn -D -c /opt/CCDC-Sign-Challenge-2016/unicorn.rb -E development
+ExecStart=/usr/local/bin/unicorn -D -c /opt/CCDC-Sign-Challenge-2016/unicorn.rb -E development
 #ExecReload=/bin/kill -s USR2 $MAINPID && /bin/kill -s QUIT $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 

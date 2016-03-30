@@ -1,6 +1,6 @@
 @dir = "/opt/CCDC-Sign-Challenge-2016/"
 
-worker_processes 2
+worker_processes 1
 working_directory @dir
 
 timeout 30
